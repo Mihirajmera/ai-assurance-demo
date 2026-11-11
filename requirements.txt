@@ -1,5 +1,5 @@
 # The three tools, pinned to the PyPI releases sample-output/ was built with.
-agent-access-review==0.3.0
+agent-access-review==0.4.0
 multiagent-flight-recorder==0.2.0
 ai-gateway-audit==0.1.0
 pytest==9.2.0

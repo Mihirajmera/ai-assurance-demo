@@ -34,7 +34,7 @@ Read one layer at a time and you get three partial answers. Together:
 - **AC-6, least privilege:** the config grants merge and delete without approval (AAR-03, fail), while the runtime log shows every merge waited for a human (AFR-03, pass). Both are true. The approval only exists because the recorder sits in the path, so the control stays **failed** until the config itself requires it.
 - **SI-7, integrity:** fails at two layers for different reasons. The MCP server changed a tool description mid-session (AFR-06), and the gateway image can be swapped under its tag (GWA-07).
 - **AC-5, separation of duties:** only runtime evidence can catch it. The manifest names dana as owner, and the log shows dana approving her own agent's action (AFR-04).
-- **31 NIST SP 800-53 controls** have evidence, 7 of them from more than one layer, and 13 are not satisfied.
+- **31 NIST SP 800-53 controls** have evidence, 8 of them from more than one layer, and 13 are not satisfied.
 
 ## Run it
 

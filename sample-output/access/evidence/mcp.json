@@ -21,6 +21,7 @@
         "category": "github",
         "data_classification": "confidential",
         "deprecated": true,
+        "ecosystem": "npm",
         "egress": true,
         "endpoint": null,
         "known": true,
@@ -33,7 +34,8 @@
         "sandboxed": false,
         "scopes": [],
         "tool": "github",
-        "untrusted_input": true
+        "untrusted_input": true,
+        "version": null
       }
     ],
     "id": "mcp",
@@ -192,10 +194,16 @@
       ],
       "status": "FAIL",
       "title": "Tool servers are still maintained upstream"
+    },
+    {
+      "check_id": "AAR-14",
+      "findings": [],
+      "status": "PASS",
+      "title": "Tool servers have no known vulnerabilities"
     }
   ],
   "review_as_of": "2026-10-12",
-  "sha256": "e1a72d36edcf9327db3172e60d01b0dfb329d0bf3454b7dbf0b383f3e8e88da2",
+  "sha256": "f6eeff8b8a01954f79d4ae967cbb69bb8f697c6f79622a982c82b90800b46497",
   "source": "scenario/.mcp.json",
   "source_record": {
     "mcpServers": {

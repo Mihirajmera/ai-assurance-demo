@@ -43,6 +43,9 @@
                   "control-id": "ia-5"
                 },
                 {
+                  "control-id": "ra-5"
+                },
+                {
                   "control-id": "sa-22"
                 },
                 {
@@ -83,7 +86,7 @@
                 "props": [
                   {
                     "name": "sha256",
-                    "value": "862de1b7f4450b96d83f62f3da98dfcf159f3c9120d8df9852f5548b8939519b"
+                    "value": "7d32b59d462ec6cf35e4b69644504212ffe5a7dbb5e2edef55e9996ffa95431b"
                   }
                 ]
               }
@@ -114,7 +117,7 @@
                 "props": [
                   {
                     "name": "sha256",
-                    "value": "e1a72d36edcf9327db3172e60d01b0dfb329d0bf3454b7dbf0b383f3e8e88da2"
+                    "value": "f6eeff8b8a01954f79d4ae967cbb69bb8f697c6f79622a982c82b90800b46497"
                   }
                 ]
               }
@@ -252,6 +255,26 @@
             ]
           },
           {
+            "uuid": "1bb8ae8f-eb85-5211-97ff-183143941bd6",
+            "title": "RA-5: AAR-14",
+            "description": "Tool servers have no known vulnerabilities",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
             "uuid": "9110dfff-d068-5a88-81ad-89f781721748",
             "title": "SA-22: AAR-13",
             "description": "Tool servers are still maintained upstream",
@@ -290,8 +313,8 @@
           },
           {
             "uuid": "830ed940-d94c-5e3c-9982-bf4157b7eeb0",
-            "title": "SI-2: AAR-13",
-            "description": "Tool servers are still maintained upstream",
+            "title": "SI-2: AAR-13, AAR-14",
+            "description": "Tool servers are still maintained upstream; Tool servers have no known vulnerabilities",
             "target": {
               "type": "objective-id",
               "target-id": "si-2",
