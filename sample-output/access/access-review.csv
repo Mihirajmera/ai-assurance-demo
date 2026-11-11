@@ -1,0 +1,3 @@
+agent_id,agent_name,owner,tool,category,resource,actions,data_classification,untrusted_input,egress,finding_ids,recommended_decision,reviewer_decision,reviewer,review_date
+release-bot,Release Agent,dana@example.com,github,source-control,github:acme/payments-api,delete merge read write,confidential,True,False,,Keep,,,
+mcp,MCP host (.mcp.json),,github,github,'@modelcontextprotocol/server-github,read write,confidential,True,True,AAR-03 AAR-07 AAR-10 AAR-13,Modify,,,

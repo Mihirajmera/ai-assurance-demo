@@ -1,0 +1,22 @@
+# Acme's governed agent manifest. One record per production agent, kept by its owner.
+agents:
+  - id: release-bot
+    name: Release Agent
+    framework: claude-agent-sdk
+    owner: dana@example.com
+    approved_by: platform-security
+    approved_on: 2026-06-30          # more than 90 days before the review: recertification is due
+    tools:
+      - name: github
+        type: source-control
+        resource: github:acme/payments-api
+        actions: [read, write, merge, delete]
+        data_classification: confidential
+        untrusted_input: true        # pull request text is written by anyone with repo access
+        requires_approval: true      # merges and deletions wait for a human
+        last_used: 2026-10-12
+    credentials:
+      - name: GITHUB_PERSONAL_ACCESS_TOKEN
+        tool: github
+        source: vault
+        last_rotated: 2026-09-15

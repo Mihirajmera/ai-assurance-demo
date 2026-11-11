@@ -1,0 +1,32 @@
+name: assurance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run all three tools and merge the evidence
+        env:
+          SOURCE_DATE_EPOCH: '1791763200'
+        run: python assure.py --out assurance
+      - name: Tests (links resolve, manifest verifies, output reproducible, sample current)
+        run: python -m pytest -q
+      - name: Report in the job summary
+        run: cat assurance/assurance-report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: assurance-bundle
+          path: assurance/

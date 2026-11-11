@@ -1,0 +1,329 @@
+{
+  "assessment-results": {
+    "uuid": "65d70e99-c06b-5912-8558-8acfee816818",
+    "metadata": {
+      "title": "AI agent access review",
+      "last-modified": "2026-10-12T00:00:00+00:00",
+      "version": "2026-10-12",
+      "oscal-version": "1.1.2"
+    },
+    "import-ap": {
+      "href": "#"
+    },
+    "results": [
+      {
+        "uuid": "4225f521-d977-5ef8-bbae-ae4d3dd53ea1",
+        "title": "Agent access review as of 2026-10-12",
+        "description": "Automated review of AI agent tool access, credentials and approvals.",
+        "start": "2026-10-12T00:00:00+00:00",
+        "end": "2026-10-12T00:00:00+00:00",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ac-2"
+                },
+                {
+                  "control-id": "ac-2.3"
+                },
+                {
+                  "control-id": "ac-4"
+                },
+                {
+                  "control-id": "ac-6"
+                },
+                {
+                  "control-id": "cm-7"
+                },
+                {
+                  "control-id": "cm-8"
+                },
+                {
+                  "control-id": "ia-5"
+                },
+                {
+                  "control-id": "sa-22"
+                },
+                {
+                  "control-id": "sc-8"
+                },
+                {
+                  "control-id": "si-2"
+                },
+                {
+                  "control-id": "sr-3"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "c19ca125-3c25-5be1-826f-bc0261debac9",
+            "title": "Access review of Release Agent",
+            "description": "1 tool grants, 1 findings.",
+            "methods": [
+              "EXAMINE"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "5db2a370-38a0-52ec-82fe-5bcbce043b61",
+                "type": "component",
+                "title": "Release Agent"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../evidence/release-bot.json",
+                "description": "Hashed agent inventory",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "862de1b7f4450b96d83f62f3da98dfcf159f3c9120d8df9852f5548b8939519b"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00+00:00"
+          },
+          {
+            "uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a",
+            "title": "Access review of MCP host (.mcp.json)",
+            "description": "1 tool grants, 8 findings.",
+            "methods": [
+              "EXAMINE"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "0fe81bfb-941b-50c2-aceb-f16a59988f11",
+                "type": "component",
+                "title": "MCP host (.mcp.json)"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../evidence/mcp.json",
+                "description": "Hashed agent inventory",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "e1a72d36edcf9327db3172e60d01b0dfb329d0bf3454b7dbf0b383f3e8e88da2"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00+00:00"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "1416a2ae-cadc-5a18-94f1-2a7a95a2028a",
+            "title": "AC-2: AAR-01, AAR-02",
+            "description": "Every agent has an accountable human owner; Agent access is approved and recertified within 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "3df54386-dadb-53f6-8bcb-707580cd9a66",
+            "title": "AC-2(3): AAR-08",
+            "description": "Dormant agent access is removed after 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-2.3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "afc11316-639c-5bdf-b642-029902f881f7",
+            "title": "AC-4: AAR-09",
+            "description": "No unmitigated data exfiltration path",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-4",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "b0c03a2f-287f-5647-81ae-56d5c8c18816",
+            "title": "AC-6: AAR-03, AAR-04, AAR-05",
+            "description": "Privileged agent actions require human approval; Tool scopes follow least privilege; Code and shell execution is sandboxed",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-6",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "2be480c6-fa9f-592a-af01-086eacabd683",
+            "title": "CM-7: AAR-05",
+            "description": "Code and shell execution is sandboxed",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-7",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "acd7e63b-e96f-5720-aaf7-621d9a173e1c",
+            "title": "CM-8: AAR-12",
+            "description": "Every tool's capabilities are inventoried",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-8",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "36ff6933-02e0-5409-9e67-4a7f623f0b2b",
+            "title": "IA-5: AAR-06, AAR-07",
+            "description": "No credentials are hardcoded in agent configuration; Agent credentials are rotated within 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-5",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "9110dfff-d068-5a88-81ad-89f781721748",
+            "title": "SA-22: AAR-13",
+            "description": "Tool servers are still maintained upstream",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sa-22",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "cd865fd1-54af-5958-b4ca-dbc0e57813ee",
+            "title": "SC-8: AAR-11",
+            "description": "Remote tools use encrypted transport",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-8",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "830ed940-d94c-5e3c-9982-bf4157b7eeb0",
+            "title": "SI-2: AAR-13",
+            "description": "Tool servers are still maintained upstream",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "4c67e7ee-f020-532b-a67c-35aff8496b45",
+            "title": "SR-3: AAR-10",
+            "description": "Tool packages are pinned to a version",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sr-3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

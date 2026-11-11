@@ -1,0 +1,981 @@
+{
+  "assessment-results": {
+    "uuid": "5494022d-8c1e-5495-acae-7db995394ddf",
+    "metadata": {
+      "title": "AI assurance: Acme Release Agent (configuration, runtime, gateway)",
+      "last-modified": "2026-10-12T00:00:00Z",
+      "version": "1",
+      "oscal-version": "1.1.2"
+    },
+    "import-ap": {
+      "href": "#"
+    },
+    "results": [
+      {
+        "uuid": "4225f521-d977-5ef8-bbae-ae4d3dd53ea1",
+        "title": "What is the agent allowed to do? (agent-access-review)",
+        "description": "Automated review of AI agent tool access, credentials and approvals.",
+        "start": "2026-10-12T00:00:00+00:00",
+        "end": "2026-10-12T00:00:00+00:00",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ac-2"
+                },
+                {
+                  "control-id": "ac-2.3"
+                },
+                {
+                  "control-id": "ac-4"
+                },
+                {
+                  "control-id": "ac-6"
+                },
+                {
+                  "control-id": "cm-7"
+                },
+                {
+                  "control-id": "cm-8"
+                },
+                {
+                  "control-id": "ia-5"
+                },
+                {
+                  "control-id": "sa-22"
+                },
+                {
+                  "control-id": "sc-8"
+                },
+                {
+                  "control-id": "si-2"
+                },
+                {
+                  "control-id": "sr-3"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "c19ca125-3c25-5be1-826f-bc0261debac9",
+            "title": "Access review of Release Agent",
+            "description": "1 tool grants, 1 findings.",
+            "methods": [
+              "EXAMINE"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "5db2a370-38a0-52ec-82fe-5bcbce043b61",
+                "type": "component",
+                "title": "Release Agent"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../access/evidence/release-bot.json",
+                "description": "Hashed agent inventory",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "862de1b7f4450b96d83f62f3da98dfcf159f3c9120d8df9852f5548b8939519b"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00+00:00"
+          },
+          {
+            "uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a",
+            "title": "Access review of MCP host (.mcp.json)",
+            "description": "1 tool grants, 8 findings.",
+            "methods": [
+              "EXAMINE"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "0fe81bfb-941b-50c2-aceb-f16a59988f11",
+                "type": "component",
+                "title": "MCP host (.mcp.json)"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../access/evidence/mcp.json",
+                "description": "Hashed agent inventory",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "e1a72d36edcf9327db3172e60d01b0dfb329d0bf3454b7dbf0b383f3e8e88da2"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00+00:00"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "1416a2ae-cadc-5a18-94f1-2a7a95a2028a",
+            "title": "AC-2: AAR-01, AAR-02",
+            "description": "Every agent has an accountable human owner; Agent access is approved and recertified within 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "3df54386-dadb-53f6-8bcb-707580cd9a66",
+            "title": "AC-2(3): AAR-08",
+            "description": "Dormant agent access is removed after 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-2.3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "afc11316-639c-5bdf-b642-029902f881f7",
+            "title": "AC-4: AAR-09",
+            "description": "No unmitigated data exfiltration path",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-4",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "b0c03a2f-287f-5647-81ae-56d5c8c18816",
+            "title": "AC-6: AAR-03, AAR-04, AAR-05",
+            "description": "Privileged agent actions require human approval; Tool scopes follow least privilege; Code and shell execution is sandboxed",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-6",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "2be480c6-fa9f-592a-af01-086eacabd683",
+            "title": "CM-7: AAR-05",
+            "description": "Code and shell execution is sandboxed",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-7",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "acd7e63b-e96f-5720-aaf7-621d9a173e1c",
+            "title": "CM-8: AAR-12",
+            "description": "Every tool's capabilities are inventoried",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-8",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "36ff6933-02e0-5409-9e67-4a7f623f0b2b",
+            "title": "IA-5: AAR-06, AAR-07",
+            "description": "No credentials are hardcoded in agent configuration; Agent credentials are rotated within 90 days",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-5",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "9110dfff-d068-5a88-81ad-89f781721748",
+            "title": "SA-22: AAR-13",
+            "description": "Tool servers are still maintained upstream",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sa-22",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "cd865fd1-54af-5958-b4ca-dbc0e57813ee",
+            "title": "SC-8: AAR-11",
+            "description": "Remote tools use encrypted transport",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-8",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "c19ca125-3c25-5be1-826f-bc0261debac9"
+              },
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "830ed940-d94c-5e3c-9982-bf4157b7eeb0",
+            "title": "SI-2: AAR-13",
+            "description": "Tool servers are still maintained upstream",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          },
+          {
+            "uuid": "4c67e7ee-f020-532b-a67c-35aff8496b45",
+            "title": "SR-3: AAR-10",
+            "description": "Tool packages are pinned to a version",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sr-3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "9eb103a9-cdf6-5d3c-b05e-33e63fb1127a"
+              }
+            ]
+          }
+        ],
+        "props": [
+          {
+            "name": "layer",
+            "value": "access"
+          }
+        ]
+      },
+      {
+        "uuid": "1594ab6d-164d-5473-96d5-95cbd3c33f35",
+        "title": "What did it actually do? (multiagent-flight-recorder)",
+        "description": "7 tool calls, 2 approvals, 16 log entries.",
+        "start": "2026-10-12T00:00:00.000Z",
+        "end": "2026-10-12T00:00:00.000Z",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ac-3"
+                },
+                {
+                  "control-id": "ac-5"
+                },
+                {
+                  "control-id": "ac-6"
+                },
+                {
+                  "control-id": "au-10"
+                },
+                {
+                  "control-id": "au-12"
+                },
+                {
+                  "control-id": "au-3"
+                },
+                {
+                  "control-id": "au-9"
+                },
+                {
+                  "control-id": "au-9.3"
+                },
+                {
+                  "control-id": "cm-3"
+                },
+                {
+                  "control-id": "si-7"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3",
+            "title": "Flight log re-performance",
+            "methods": [
+              "EXAMINE",
+              "TEST"
+            ],
+            "description": "Hash chain, signatures, approvals and policy enforcement re-checked from the log.",
+            "types": [
+              "finding"
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../runtime/evidence.json",
+                "description": "Hashed evidence summary",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "12844aa9b7e144762de74778e72a7263eee1bd8eeb2930ef76784566ba9a346c"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00.000Z"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "5a07064d-3a64-5c89-99d9-3b070e8dd246",
+            "title": "AC-3: AFR-03, AFR-05",
+            "description": "Calls that need approval ran only with a valid, single-use human approval; Policy decisions were enforced",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-3",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "6ececb63-dd82-5e31-aa5e-91224d566313",
+            "title": "AC-5: AFR-04",
+            "description": "Nobody approved an agent acting on their own behalf",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-5",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "f54d5db6-9399-58bd-95b6-1f9b15e0591a",
+            "title": "AC-6: AFR-03",
+            "description": "Calls that need approval ran only with a valid, single-use human approval",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-6",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "647d4b50-dfe9-515f-996f-438343286072",
+            "title": "AU-10: AFR-01",
+            "description": "The flight log is complete and unaltered",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-10",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "875c1bd8-d89e-5dfb-a065-46e2a0dd65aa",
+            "title": "AU-12: AFR-07",
+            "description": "Every forwarded call has a recorded outcome",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-12",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "ac624d24-0863-554e-9c1e-80003e5c21aa",
+            "title": "AU-3: AFR-02",
+            "description": "Every tool call is attributed to an agent and the person it acts for",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-3",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "067901e8-a238-5572-827a-19d9696a3643",
+            "title": "AU-9: AFR-01",
+            "description": "The flight log is complete and unaltered",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-9",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "c04b3cf2-8335-58cb-93a4-02a4601e0acb",
+            "title": "AU-9(3): AFR-01",
+            "description": "The flight log is complete and unaltered",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-9.3",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "45065f0e-2869-5e16-a3ec-2a60f6714fef",
+            "title": "CM-3: AFR-06",
+            "description": "Tool definitions did not change without review",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-3",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          },
+          {
+            "uuid": "f73df7bd-ea47-50cc-9783-d53be349f40b",
+            "title": "SI-7: AFR-06",
+            "description": "Tool definitions did not change without review",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-7",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "d96f06cd-572a-5f36-ad8b-72f2a49453a3"
+              }
+            ]
+          }
+        ],
+        "props": [
+          {
+            "name": "layer",
+            "value": "runtime"
+          }
+        ]
+      },
+      {
+        "uuid": "4f82983a-520e-53ce-a305-c4a3152b4fb2",
+        "title": "Is the path its model calls take controlled? (ai-gateway-audit)",
+        "description": "Automated review of AI gateway configuration against tier-0 infrastructure controls.",
+        "start": "2026-10-12T00:00:00+00:00",
+        "end": "2026-10-12T00:00:00+00:00",
+        "reviewed-controls": {
+          "control-selections": [
+            {
+              "include-controls": [
+                {
+                  "control-id": "ac-2"
+                },
+                {
+                  "control-id": "ac-3"
+                },
+                {
+                  "control-id": "au-3.3"
+                },
+                {
+                  "control-id": "cm-2"
+                },
+                {
+                  "control-id": "cm-7"
+                },
+                {
+                  "control-id": "ia-2"
+                },
+                {
+                  "control-id": "ia-5.7"
+                },
+                {
+                  "control-id": "ra-5"
+                },
+                {
+                  "control-id": "sc-12"
+                },
+                {
+                  "control-id": "sc-23"
+                },
+                {
+                  "control-id": "sc-28"
+                },
+                {
+                  "control-id": "sc-5"
+                },
+                {
+                  "control-id": "sc-6"
+                },
+                {
+                  "control-id": "sc-8"
+                },
+                {
+                  "control-id": "si-12"
+                },
+                {
+                  "control-id": "si-2"
+                },
+                {
+                  "control-id": "si-7"
+                }
+              ]
+            }
+          ]
+        },
+        "observations": [
+          {
+            "uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac",
+            "title": "Configuration audit of gateway",
+            "description": "2 files read, 3 findings.",
+            "methods": [
+              "EXAMINE"
+            ],
+            "types": [
+              "finding"
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "919ea9ab-bb84-50d7-b607-75a80b72dd92",
+                "type": "component",
+                "title": "gateway"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "href": "../gateway/evidence/gateway.json",
+                "description": "Hashed gateway inventory",
+                "props": [
+                  {
+                    "name": "sha256",
+                    "value": "64a51e5a869fa5e0c9eb935a19050cf7e61b425d25e2201803821478204d4b23"
+                  }
+                ]
+              }
+            ],
+            "collected": "2026-10-12T00:00:00+00:00"
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "e942d98d-4898-509d-a3ea-b42b279faa24",
+            "title": "AC-2: GWA-05",
+            "description": "The admin UI does not accept a shared environment login",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-2",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "769e2d1e-9d16-5839-91c4-c2af62640481",
+            "title": "AC-3: GWA-02",
+            "description": "The proxy requires a master key that is not stored in plain text",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ac-3",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "ecdeac99-b172-5977-b06c-8760c91d9fe2",
+            "title": "AU-3(3): GWA-03",
+            "description": "Prompts and responses are kept out of logs",
+            "target": {
+              "type": "objective-id",
+              "target-id": "au-3.3",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "08b10b9e-cf0a-59af-8b49-f6f5075e6b90",
+            "title": "CM-2: GWA-07",
+            "description": "The gateway image is pinned by digest",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "c3213af7-c7f0-5391-bf0d-944be91b4072",
+            "title": "CM-7: GWA-09, GWA-10",
+            "description": "Interactive API documentation is disabled; Request and upload sizes are limited",
+            "target": {
+              "type": "objective-id",
+              "target-id": "cm-7",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "871414af-58db-5f73-9775-05aec06bb1f9",
+            "title": "IA-2: GWA-02, GWA-05",
+            "description": "The proxy requires a master key that is not stored in plain text; The admin UI does not accept a shared environment login",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-2",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "c97b99fb-63a1-56c8-9eea-43649141e1f3",
+            "title": "IA-5(7): GWA-01, GWA-02",
+            "description": "Provider credentials are not stored in plain text; The proxy requires a master key that is not stored in plain text",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ia-5.7",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "9dc799ff-a91f-5951-a671-baee2fc91b40",
+            "title": "RA-5: GWA-11",
+            "description": "The gateway runs a LiteLLM release with no known high or critical advisory",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ra-5",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "e34a1c89-8e15-5839-be21-af3fc24f7858",
+            "title": "SC-12: GWA-04",
+            "description": "Provider keys are not held in the gateway database",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-12",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "09151327-ac0a-5385-b1ca-00f30ebce3a4",
+            "title": "SC-23: GWA-08",
+            "description": "TLS certificates are verified on calls to providers",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-23",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "f53c780b-0d02-5648-afe9-200f87563647",
+            "title": "SC-28: GWA-01, GWA-04",
+            "description": "Provider credentials are not stored in plain text; Provider keys are not held in the gateway database",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-28",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "afc4aaa4-1280-57c4-ad60-d4d4efd1107a",
+            "title": "SC-5: GWA-10",
+            "description": "Request and upload sizes are limited",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-5",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "f5a51493-2fe3-5a8c-a794-8a228cf4049b",
+            "title": "SC-6: GWA-06",
+            "description": "Spend is capped globally and per key",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-6",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "a87d0c9c-4321-5047-bfde-3c25914e7578",
+            "title": "SC-8: GWA-08",
+            "description": "TLS certificates are verified on calls to providers",
+            "target": {
+              "type": "objective-id",
+              "target-id": "sc-8",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "3b2dd714-cd88-55e1-83d9-fde56a67fcef",
+            "title": "SI-12: GWA-03",
+            "description": "Prompts and responses are kept out of logs",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-12",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "1693fcc7-e6b1-5e9d-833c-678019fdab40",
+            "title": "SI-2: GWA-11",
+            "description": "The gateway runs a LiteLLM release with no known high or critical advisory",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-2",
+              "status": {
+                "state": "satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          },
+          {
+            "uuid": "c91699bc-a460-5fb3-a964-5bc317320298",
+            "title": "SI-7: GWA-07",
+            "description": "The gateway image is pinned by digest",
+            "target": {
+              "type": "objective-id",
+              "target-id": "si-7",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "6faaeb4b-f7a9-5ba2-9991-bbea96a9fcac"
+              }
+            ]
+          }
+        ],
+        "props": [
+          {
+            "name": "layer",
+            "value": "gateway"
+          }
+        ]
+      }
+    ]
+  }
+}

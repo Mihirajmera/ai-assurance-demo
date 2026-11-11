@@ -1,0 +1,187 @@
+{
+  "audit_as_of": "2026-10-12",
+  "collected": "2026-10-12T00:00:00+00:00",
+  "deployment_id": "gateway",
+  "folder": ".",
+  "hash_scope": "sha256 of canonical JSON (sorted keys, no spaces) of {sources, inventory}",
+  "inventory": {
+    "config": {
+      "general_settings": {
+        "allowed_file_extensions": [
+          ".txt",
+          ".md"
+        ],
+        "disable_env_credential_login": true,
+        "master_key": "os.environ/LITELLM_MASTER_KEY",
+        "max_request_size_mb": 25,
+        "store_model_in_db": false,
+        "store_prompts_in_spend_logs": false
+      },
+      "litellm_settings": {
+        "success_callback": [
+          "prometheus"
+        ],
+        "turn_off_message_logging": true
+      },
+      "model_list": [
+        {
+          "litellm_params": {
+            "api_key": "os.environ/ANTHROPIC_API_KEY",
+            "model": "anthropic/claude-sonnet-5-5"
+          },
+          "model_name": "claude"
+        }
+      ]
+    },
+    "env": {
+      "ANTHROPIC_API_KEY": {
+        "literal": false,
+        "source": "docker-compose.yml",
+        "value": "${ANTHROPIC_API_KEY}"
+      },
+      "DATABASE_URL": {
+        "literal": false,
+        "source": "docker-compose.yml",
+        "value": "${DATABASE_URL}"
+      },
+      "LITELLM_MASTER_KEY": {
+        "literal": false,
+        "source": "docker-compose.yml",
+        "value": "${LITELLM_MASTER_KEY}"
+      },
+      "NO_DOCS": {
+        "literal": true,
+        "source": "docker-compose.yml",
+        "value": "True"
+      },
+      "NO_OPENAPI": {
+        "literal": true,
+        "source": "docker-compose.yml",
+        "value": "True"
+      },
+      "NO_REDOC": {
+        "literal": true,
+        "source": "docker-compose.yml",
+        "value": "True"
+      }
+    },
+    "images": [
+      {
+        "ref": "ghcr.io/berriai/litellm:v1.106.2",
+        "service": "litellm",
+        "source": "docker-compose.yml"
+      }
+    ],
+    "plaintext_secrets": []
+  },
+  "results": [
+    {
+      "check_id": "GWA-01",
+      "findings": [],
+      "status": "PASS",
+      "title": "Provider credentials are not stored in plain text"
+    },
+    {
+      "check_id": "GWA-02",
+      "findings": [],
+      "status": "PASS",
+      "title": "The proxy requires a master key that is not stored in plain text"
+    },
+    {
+      "check_id": "GWA-03",
+      "findings": [],
+      "status": "PASS",
+      "title": "Prompts and responses are kept out of logs"
+    },
+    {
+      "check_id": "GWA-04",
+      "findings": [],
+      "status": "PASS",
+      "title": "Provider keys are not held in the gateway database"
+    },
+    {
+      "check_id": "GWA-05",
+      "findings": [],
+      "status": "PASS",
+      "title": "The admin UI does not accept a shared environment login"
+    },
+    {
+      "check_id": "GWA-06",
+      "findings": [
+        {
+          "check_id": "GWA-06",
+          "deployment_id": "gateway",
+          "exception": null,
+          "message": "There is no global spend cap. A leaked virtual key or a runaway agent can spend without limit, and stolen gateway access is used to run attackers' workloads.",
+          "recommendation": "Set litellm_settings.max_budget (and budget_duration) to a limit someone has approved.",
+          "setting": "litellm_settings.max_budget",
+          "severity": "medium"
+        },
+        {
+          "check_id": "GWA-06",
+          "deployment_id": "gateway",
+          "exception": null,
+          "message": "Virtual keys can be created with no budget limit.",
+          "recommendation": "Set litellm_settings.upperbound_key_generate_params.max_budget so no key can exceed it.",
+          "setting": "litellm_settings.upperbound_key_generate_params",
+          "severity": "low"
+        }
+      ],
+      "status": "FAIL",
+      "title": "Spend is capped globally and per key"
+    },
+    {
+      "check_id": "GWA-07",
+      "findings": [
+        {
+          "check_id": "GWA-07",
+          "deployment_id": "gateway",
+          "exception": null,
+          "message": "Service `litellm` runs `ghcr.io/berriai/litellm:v1.106.2`, pinned by tag but not by digest. Tags can be moved to different content.",
+          "recommendation": "Add the digest of the reviewed image: image: \u2026litellm:<tag>@sha256:<digest>.",
+          "setting": "services.litellm.image",
+          "severity": "medium"
+        }
+      ],
+      "status": "FAIL",
+      "title": "The gateway image is pinned by digest"
+    },
+    {
+      "check_id": "GWA-08",
+      "findings": [],
+      "status": "PASS",
+      "title": "TLS certificates are verified on calls to providers"
+    },
+    {
+      "check_id": "GWA-09",
+      "findings": [],
+      "status": "PASS",
+      "title": "Interactive API documentation is disabled"
+    },
+    {
+      "check_id": "GWA-10",
+      "findings": [],
+      "status": "PASS",
+      "title": "Request and upload sizes are limited"
+    },
+    {
+      "check_id": "GWA-11",
+      "findings": [],
+      "status": "PASS",
+      "title": "The gateway runs a LiteLLM release with no known high or critical advisory"
+    }
+  ],
+  "sha256": "64a51e5a869fa5e0c9eb935a19050cf7e61b425d25e2201803821478204d4b23",
+  "sources": [
+    {
+      "path": "config.yaml",
+      "sha256": "5ee86ccf6c511fc2a8b8e921642e0f7bf734221d62665131b37c02dc56e5d3f1",
+      "type": "litellm-config"
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "16f63581d29b15924b5bd99942d7520482ed8f93eb3b19a384dc9dd61763204c",
+      "type": "compose"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "agent_id": "release-bot",
+  "collected": "2026-10-12T00:00:00+00:00",
+  "hash_scope": "sha256 of canonical JSON (sorted keys, no spaces) of {inventory, source_record}",
+  "inventory": {
+    "approved_by": "platform-security",
+    "approved_on": "2026-06-30",
+    "credentials": [
+      {
+        "hardcoded": false,
+        "last_rotated": "2026-09-15",
+        "name": "github.GITHUB_PERSONAL_ACCESS_TOKEN"
+      }
+    ],
+    "grants": [
+      {
+        "actions": [
+          "delete",
+          "merge",
+          "read",
+          "write"
+        ],
+        "category": "source-control",
+        "data_classification": "confidential",
+        "deprecated": false,
+        "egress": false,
+        "endpoint": null,
+        "known": true,
+        "last_used": "2026-10-12",
+        "package": null,
+        "pinned": null,
+        "replacement": null,
+        "requires_approval": true,
+        "resource": "github:acme/payments-api",
+        "sandboxed": false,
+        "scopes": [],
+        "tool": "github",
+        "untrusted_input": true
+      }
+    ],
+    "id": "release-bot",
+    "name": "Release Agent",
+    "owner": "dana@example.com",
+    "source": "scenario/agents.yaml",
+    "source_type": "agent-manifest"
+  },
+  "results": [
+    {
+      "check_id": "AAR-01",
+      "findings": [],
+      "status": "PASS",
+      "title": "Every agent has an accountable human owner"
+    },
+    {
+      "check_id": "AAR-02",
+      "findings": [
+        {
+          "agent_id": "release-bot",
+          "check_id": "AAR-02",
+          "message": "Access was last approved 104 days ago by platform-security (limit 90).",
+          "recommendation": "Recertify: the owner confirms each tool below is still needed.",
+          "severity": "medium",
+          "tool": null
+        }
+      ],
+      "status": "FAIL",
+      "title": "Agent access is approved and recertified within 90 days"
+    },
+    {
+      "check_id": "AAR-03",
+      "findings": [],
+      "status": "PASS",
+      "title": "Privileged agent actions require human approval"
+    },
+    {
+      "check_id": "AAR-04",
+      "findings": [],
+      "status": "PASS",
+      "title": "Tool scopes follow least privilege"
+    },
+    {
+      "check_id": "AAR-05",
+      "findings": [],
+      "status": "PASS",
+      "title": "Code and shell execution is sandboxed"
+    },
+    {
+      "check_id": "AAR-06",
+      "findings": [],
+      "status": "PASS",
+      "title": "No credentials are hardcoded in agent configuration"
+    },
+    {
+      "check_id": "AAR-07",
+      "findings": [],
+      "status": "PASS",
+      "title": "Agent credentials are rotated within 90 days"
+    },
+    {
+      "check_id": "AAR-08",
+      "findings": [],
+      "status": "PASS",
+      "title": "Dormant agent access is removed after 90 days"
+    },
+    {
+      "check_id": "AAR-09",
+      "findings": [],
+      "status": "PASS",
+      "title": "No unmitigated data exfiltration path"
+    },
+    {
+      "check_id": "AAR-10",
+      "findings": [],
+      "status": "PASS",
+      "title": "Tool packages are pinned to a version"
+    },
+    {
+      "check_id": "AAR-11",
+      "findings": [],
+      "status": "PASS",
+      "title": "Remote tools use encrypted transport"
+    },
+    {
+      "check_id": "AAR-12",
+      "findings": [],
+      "status": "PASS",
+      "title": "Every tool's capabilities are inventoried"
+    },
+    {
+      "check_id": "AAR-13",
+      "findings": [],
+      "status": "PASS",
+      "title": "Tool servers are still maintained upstream"
+    }
+  ],
+  "review_as_of": "2026-10-12",
+  "sha256": "862de1b7f4450b96d83f62f3da98dfcf159f3c9120d8df9852f5548b8939519b",
+  "source": "scenario/agents.yaml",
+  "source_record": {
+    "approved_by": "platform-security",
+    "approved_on": "2026-06-30",
+    "credentials": [
+      {
+        "last_rotated": "2026-09-15",
+        "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "source": "vault",
+        "tool": "github"
+      }
+    ],
+    "framework": "claude-agent-sdk",
+    "id": "release-bot",
+    "name": "Release Agent",
+    "owner": "dana@example.com",
+    "tools": [
+      {
+        "actions": [
+          "read",
+          "write",
+          "merge",
+          "delete"
+        ],
+        "data_classification": "confidential",
+        "last_used": "2026-10-12",
+        "name": "github",
+        "requires_approval": true,
+        "resource": "github:acme/payments-api",
+        "type": "source-control",
+        "untrusted_input": true
+      }
+    ]
+  },
+  "source_type": "agent-manifest"
+}
