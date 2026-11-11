@@ -23,6 +23,7 @@
         "category": "source-control",
         "data_classification": "confidential",
         "deprecated": false,
+        "ecosystem": null,
         "egress": false,
         "endpoint": null,
         "known": true,
@@ -35,7 +36,8 @@
         "sandboxed": false,
         "scopes": [],
         "tool": "github",
-        "untrusted_input": true
+        "untrusted_input": true,
+        "version": null
       }
     ],
     "id": "release-bot",
@@ -131,10 +133,16 @@
       "findings": [],
       "status": "PASS",
       "title": "Tool servers are still maintained upstream"
+    },
+    {
+      "check_id": "AAR-14",
+      "findings": [],
+      "status": "PASS",
+      "title": "Tool servers have no known vulnerabilities"
     }
   ],
   "review_as_of": "2026-10-12",
-  "sha256": "862de1b7f4450b96d83f62f3da98dfcf159f3c9120d8df9852f5548b8939519b",
+  "sha256": "7d32b59d462ec6cf35e4b69644504212ffe5a7dbb5e2edef55e9996ffa95431b",
   "source": "scenario/agents.yaml",
   "source_record": {
     "approved_by": "platform-security",

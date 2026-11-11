@@ -26,6 +26,7 @@
 | AAR-11 | Remote tools use encrypted transport | 0 / 2 | NIST 800-53 SC-8; SOC 2 CC6.7 |
 | AAR-12 | Every tool's capabilities are inventoried | 0 / 2 | NIST 800-53 CM-8; NIST AI RMF GOVERN 1.6 |
 | AAR-13 | Tool servers are still maintained upstream | 1 / 2 | NIST 800-53 SA-22, SI-2; SOC 2 CC7.1; OWASP LLM LLM03 |
+| AAR-14 | Tool servers have no known vulnerabilities | 0 / 2 | NIST 800-53 RA-5, SI-2; SOC 2 CC7.1; OWASP LLM LLM03 |
 
 ---
 
@@ -36,7 +37,7 @@
 - **Source:** `scenario/agents.yaml`
 - **Owner:** dana@example.com
 - **Approval:** platform-security on 2026-06-30
-- **Evidence:** `evidence/release-bot.json` (sha256 `862de1b7f4450b96…`)
+- **Evidence:** `evidence/release-bot.json` (sha256 `7d32b59d462ec6cf…`)
 
 ### Access inventory
 
@@ -68,7 +69,7 @@ I have reviewed each tool grant above and confirm the decisions recorded.
 - **Source:** `scenario/.mcp.json`
 - **Owner:** none recorded
 - **Approval:** none recorded
-- **Evidence:** `evidence/mcp.json` (sha256 `e1a72d36edcf9327…`)
+- **Evidence:** `evidence/mcp.json` (sha256 `f6eeff8b8a01954f…`)
 
 ### Access inventory
 
