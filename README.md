@@ -2,9 +2,11 @@
 
 **One AI agent, assessed end to end: what it's allowed to do, what it actually did, and whether the path its model calls take is controlled. Three open-source tools, one OSCAL bundle.**
 
-[![The combined assurance report, from sample-output/assurance-report.md](docs/report.png)](sample-output/assurance-report.md)
+![One command runs the three tools, verifies the hash manifest, and the combined report shows where layers disagree](docs/demo.gif)
 
-**→ [Read the combined report](sample-output/assurance-report.md)** (no install needed).
+**→ [Read the combined report](sample-output/assurance-report.md)** (no install needed) or [watch the 60-second walkthrough](https://mihirajmera.github.io/assets/video/ai-assurance-demo.mp4).
+
+[![The combined assurance report, from sample-output/assurance-report.md](docs/report.png)](sample-output/assurance-report.md)
 
 ## Why
 
