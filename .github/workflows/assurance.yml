@@ -30,3 +30,14 @@ jobs:
         with:
           name: assurance-bundle
           path: assurance/
+
+  # The same review as a PR gate, using the published GitHub Action.
+  # The scenario is risky on purpose, so this job reports instead of failing.
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: Mihirajmera/agent-access-review@3e3691437b56f8798bd5309fbb0c3c59033cb811 # v0.5.0
+        with:
+          paths: scenario/agents.yaml scenario/.mcp.json
+          fail-on: never
