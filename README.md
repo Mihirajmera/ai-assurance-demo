@@ -20,6 +20,22 @@ An auditor reviewing an AI agent asks three different questions, and each has it
 
 Each tool answers one question and exports OSCAL. `assure.py` runs all three on the same agent and merges the results, so a control is judged on every layer that has evidence for it.
 
+```mermaid
+flowchart LR
+    subgraph scenario["scenario/ (one agent: release-bot)"]
+        cfg["agents.yaml + .mcp.json<br/>what it may do"]
+        log["runtime/flight.jsonl<br/>what it did"]
+        gw["gateway/<br/>LiteLLM config"]
+    end
+    cfg --> aar["agent-access-review<br/>AAR-*"]
+    log --> afr["agent-flight-recorder<br/>AFR-*"]
+    gw --> gwa["ai-gateway-audit<br/>GWA-*"]
+    aar & afr & gwa -->|OSCAL each| merge["assure.py<br/>merge by NIST 800-53 control"]
+    merge --> report["assurance-report.md<br/>31 controls, 8 multi-layer, 13 not satisfied"]
+    merge --> oscal["oscal/assessment-results.json<br/>one result per layer"]
+    merge --> sha["manifest.sha256"]
+```
+
 ## The scenario
 
 Acme's **Release Agent** (`release-bot`) works in GitHub on behalf of its owner, dana. Everything is fictional and in [`scenario/`](scenario):
