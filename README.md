@@ -31,9 +31,7 @@ flowchart TD
     log --> afr["agent-flight-recorder<br/>AFR-*"]
     gw --> gwa["ai-gateway-audit<br/>GWA-*"]
     aar & afr & gwa -->|OSCAL each| merge["assure.py<br/>merge by NIST 800-53 control"]
-    merge --> report["assurance-report.md<br/>31 controls · 8 multi-layer<br/>13 not satisfied"]
-    merge --> oscal["oscal/assessment-results.json<br/>one result per layer"]
-    merge --> sha["manifest.sha256"]
+    merge --> out["assurance/<br/>report: 31 controls, 13 not satisfied<br/>OSCAL assessment-results + SHA-256 manifest"]
 ```
 
 ## The scenario
